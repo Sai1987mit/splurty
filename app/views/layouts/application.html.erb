@@ -32,6 +32,11 @@ Splurting out unsolicited advice about entrepreneurship since 2014
 <hr />
 <br class="clear" />
 <div class="container">
+ <% if flash[:error].present? %>
+      <div class="col-xs-10 col-xs-offset-1 alert alert-danger">
+        <%= flash[:error].html_safe %>
+      </div>
+    <% end %>  
 <%= yield %>
 </div>
 
@@ -39,6 +44,7 @@ Splurting out unsolicited advice about entrepreneurship since 2014
     <div class="container">
       <div class="col-xs-6">
         <%= link_to "This isn't enough, I need more", root_path, :class => 'next-quote' %>
+        <%= link_to 'About', about_path %>
       </div>
       <div class="col-xs-6 footer-blurb">
         Proudly hacked in Boston, MA by <a href="http://thefirehoseproject.com">S &amp; S</a><br />
